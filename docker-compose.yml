@@ -26,17 +26,17 @@ services:
     volumes:
       - ./${MOONGO_COURSE_CONFIG}:/docker-entrypoint-initdb.d/initdb.js:ro
   
-  # mongo-chapter:
-  #   image: mongo
-  #   restart: always
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_CHAPTER}
-  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_CHAPTER}
-  #     MONGO_INITDB_DATABASE: ${MONGO_CHAPTER}
-  #   ports:
-  #     - ${MONGO_CHAPTER_PORT}:27017
-  #   volumes:
-  #     - ./${MOONGO_CHAPTER_CONFIG}:/docker-entrypoint-initdb.d/initdb.js:ro
+  mongo-chapter:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_CHAPTER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_CHAPTER}
+      MONGO_INITDB_DATABASE: ${MONGO_CHAPTER}
+    ports:
+      - ${MONGO_CHAPTER_PORT}:27017
+    volumes:
+      - ./${MOONGO_CHAPTER_CONFIG}:/docker-entrypoint-initdb.d/initdb.js:ro
 
   ms-user:
     image: ghcr.io/zth-app/ms-user:main
@@ -58,12 +58,12 @@ services:
     environment:
       MONGO_URI_PROD: ${MONGO_COURSE_URI}
 
-  # ms-chapter:
-  #   image: ghcr.io/zth-app/ms-chapter:main
-  #   restart: always
-  #   depends_on:
-  #     - mongo-chapter
-  #   ports:
-  #     - ${NEST_CHAPTER_PORT}:80
-  #   environment:
-  #     MONGO_URI_PROD: ${MONGO_CHAPTER_URI}
+  ms-chapter:
+    image: ghcr.io/zth-app/ms-chapter:main
+    restart: always
+    depends_on:
+      - mongo-chapter
+    ports:
+      - ${NEST_CHAPTER_PORT}:80
+    environment:
+      MONGO_URI_PROD: ${MONGO_CHAPTER_URI}
