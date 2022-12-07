@@ -1,0 +1,9 @@
+[submodule "MS-User"]
+	path = MS-User
+	url = https://github.com/ZTH-app/MS-User
+[submodule "MS-Chapter"]
+	path = MS-Chapter
+	url = https://github.com/ZTH-app/MS-Chapter
+[submodule "MS-Course"]
+	path = MS-Course
+	url = https://github.com/ZTH-app/MS-Course
