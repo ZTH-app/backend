@@ -1,17 +1,6 @@
 version: "3.8"
 
 services:
-  
-  gateway:
-    image: nginx:stable
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d
-    depends_on:
-      - mongo-user
-      - mongo-course
-      - mongo-chapter
-    ports:
-      - 8080:80
 
   mongo-user:
     image: mongo

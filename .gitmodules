@@ -7,3 +7,6 @@
 [submodule "MS-Course"]
 	path = MS-Course
 	url = https://github.com/ZTH-app/MS-Course
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/ZTH-app/gateway
